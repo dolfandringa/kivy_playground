@@ -1,8 +1,10 @@
 from kivymd.app import MDApp
+from kivymd.theming import ThemeManager
 
 
 class TestApp(MDApp):
-    def build(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.theme_cls.primary_palette = "Green"  # "Purple", "Red"
 
 
