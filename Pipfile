@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+autopep8 = "*"
+flake8 = "*"
+rope = "*"
+pytest = "*"
+pytest-pylint = "*"
+pytest-mock = "*"
+jedi = "*"
+
+[packages]
+kivy = "*"
+kivymd = "*"
+
+[requires]
+python_version = "3.7"
