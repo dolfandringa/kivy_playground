@@ -11,6 +11,7 @@ Builder.load_string("""
     dd_item: drop_item
     MDDropDownItem:
         id: drop_item
+        color: app.theme_cls.primary_color
         pos_hint: {'center_x': .5, 'center_y': .5}
         text: self.parent.label
 """)
