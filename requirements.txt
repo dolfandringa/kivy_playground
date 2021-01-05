@@ -1,0 +1,2 @@
+kivy
+-e git://github.com/kivymd/KivyMD@master#egg=kivymd

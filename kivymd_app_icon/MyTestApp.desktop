@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=MyTestApp
+Exec=/home/dolfandringa/.virtualenvs/kivy_playground/bin/python test.py
+Terminal=true
+Path=/home/dolfandringa/kivy_playground/kivymd_app_icon/
+Icon=/home/dolfandringa/kivy_playground/kivymd_app_icon/logo.png
+Type=Application
