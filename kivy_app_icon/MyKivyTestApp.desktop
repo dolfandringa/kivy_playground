@@ -4,6 +4,6 @@ StartupNotify=true
 Exec=/home/dolfandringa/.virtualenvs/kivy_playground/bin/python test.py
 Terminal=false
 Path=/home/dolfandringa/kivy_playground/kivy_app_icon/
-Icon=org.remmina.Remmina
+Icon=idle3
 Type=Application
 StartupWMClass=MyKivyTestApp

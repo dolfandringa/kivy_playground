@@ -21,7 +21,7 @@ Screen:
 class MyKivyTestApp(App):
     def build(self):
         self.title = "MyKivyTestApp"
-        self.icon = '/usr/share/icons/hicolor/apps/org.remmina.Remmina-symbolic.svg'
+        self.icon = '/usr/share/icons/hicolor/apps/48x48/apps/idle3.png'
         screen = Builder.load_string(KV)
         screen.add_widget(
             Button(
@@ -52,7 +52,8 @@ class MyKivyTestApp(App):
 
     def on_start(self):
         if platform == 'linux':
-            self.set_wm_class()
+        #    pass
+             self.set_wm_class()
 
 
 
