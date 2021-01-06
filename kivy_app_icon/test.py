@@ -1,14 +1,12 @@
 from kivy.app import App
 from kivy.metrics import dp
-from kivy.uix.behaviors import TouchRippleBehavior
 from kivy.uix.button import Button
 from kivy.lang import Builder
-from kivy.core.window import Window
-from kivy.config import Config
-Config.set('kivy', 'window_icon', '/usr/share/icons/hicolor/apps/org.remmina.Remmina-symbolic.svg')
-Config.write()
-Window.set_icon('/usr/share/icons/hicolor/apps/org.remmina.Remmina-symbolic.svg')
+from kivy.utils import platform
 
+if platform == 'linux':
+    from Xlib.display import Display
+    from Xlib import X
 
 KV = """
 Screen:
@@ -34,6 +32,28 @@ class MyKivyTestApp(App):
             )
         )
         return screen
+
+    def set_wm_class(self):
+        """
+        Set the X11 WM_CLASS. This is used to link the window to the X11
+        application (menu entry from the .desktop file). Gnome-shell won't
+        display the application icon correctly in the dash with the default
+        value of `python3, python3`.
+        """
+        display = Display()
+        root = display.screen().root
+        windowIDs = root.get_full_property(display.intern_atom('_NET_CLIENT_LIST'), X.AnyPropertyType).value
+        for windowID in windowIDs:
+            window = display.create_resource_object('window', windowID)
+            title = window.get_wm_name()
+            if title == self.title:
+                window.set_wm_class("MyKivyTestApp", "python3")
+                display.sync()
+
+    def on_start(self):
+        if platform == 'linux':
+            self.set_wm_class()
+
 
 
 MyKivyTestApp().run()

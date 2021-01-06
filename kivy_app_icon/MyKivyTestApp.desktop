@@ -6,3 +6,4 @@ Terminal=false
 Path=/home/dolfandringa/kivy_playground/kivy_app_icon/
 Icon=org.remmina.Remmina
 Type=Application
+StartupWMClass=MyKivyTestApp
