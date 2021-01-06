@@ -11,18 +11,6 @@ Window.set_icon('/usr/share/icons/hicolor/apps/org.remmina.Remmina-symbolic.svg'
 
 
 KV = """
-<RectangleFlatButton>:
-    ripple_color: 0, 0, 0, .2
-    background_color: 0, 0, 0, 0
-    color: root.primary_color
-
-    canvas.before:
-        Color:
-            rgba: root.primary_color
-        Line:
-            width: 1
-            rectangle: (self.x, self.y, self.width, self.height)
-
 Screen:
     canvas:
         Color:
@@ -32,46 +20,20 @@ Screen:
             size: self.size
 """
 
-
-class RectangleFlatButton(TouchRippleBehavior, Button):
-    primary_color = [
-        0.12941176470588237,
-        0.5882352941176471,
-        0.9529411764705882,
-        1
-    ]
-
-    def on_touch_down(self, touch):
-        collide_point = self.collide_point(touch.x, touch.y)
-        if collide_point:
-            touch.grab(self)
-            self.ripple_show(touch)
-            return True
-        return False
-
-    def on_touch_up(self, touch):
-        if touch.grab_current is self:
-            touch.ungrab(self)
-            self.ripple_fade()
-            return True
-        return False
-
-
-class MyTestApp(App):
+class MyKivyTestApp(App):
     def build(self):
-        self.title = "MyTestApp"
+        self.title = "MyKivyTestApp"
         self.icon = '/usr/share/icons/hicolor/apps/org.remmina.Remmina-symbolic.svg'
         screen = Builder.load_string(KV)
         screen.add_widget(
-            RectangleFlatButton(
+            Button(
                 text="Hello, World",
                 pos_hint={"center_x": 0.5, "center_y": 0.5},
                 size_hint=(None, None),
                 size=(dp(110), dp(35)),
-                ripple_color=(0.8, 0.8, 0.8, 0.5),
             )
         )
         return screen
 
 
-MyTestApp().run()
+MyKivyTestApp().run()

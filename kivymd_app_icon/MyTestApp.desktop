@@ -4,5 +4,5 @@ StartupNotify=true
 Exec=/home/dolfandringa/.virtualenvs/kivy_playground/bin/python test.py
 Terminal=false
 Path=/home/dolfandringa/kivy_playground/kivymd_app_icon/
-Icon=/home/dolfandringa/kivy_playground/kivymd_app_icon/logo.png
+Icon=org.remmina.Remmina
 Type=Application
